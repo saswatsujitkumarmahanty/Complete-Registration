@@ -1,0 +1,43 @@
+<div class="navbar">
+  <div class="nav-brand">
+    AdminPanel
+  </div>
+
+  <div class="nav-profile">
+    <button class="profile-icon-btn" (click)="toggleDropdown()" title="Account Settings" [attr.aria-expanded]="dropdownOpen">
+      <span class="nav-avatar">
+        <img *ngIf="avatarUrl" [src]="avatarUrl" alt="" class="nav-avatar-image">
+        <span *ngIf="!avatarUrl" class="nav-avatar-initials">{{ initials }}</span>
+      </span>
+      <span class="dropdown-arrow" [class.open]="dropdownOpen">▼</span>
+    </button>
+
+    <div class="dropdown-content" [class.show]="dropdownOpen">
+      <div class="dropdown-card">
+        <div class="dropdown-profile-row">
+          <div class="dropdown-avatar">
+            <img *ngIf="avatarUrl" [src]="avatarUrl" alt="" class="dropdown-avatar-image">
+            <span *ngIf="!avatarUrl">{{ initials }}</span>
+          </div>
+          <span class="dropdown-profile-name">{{ currentUserName }}</span>
+        </div>
+      </div>
+
+      <a routerLink="/account" (click)="closeDropdown()" class="dropdown-menu-item">
+        <span class="menu-icon-circle">⚙️</span>
+        <span class="menu-text">Account</span>
+        <span class="menu-chevron">›</span>
+      </a>
+      <a routerLink="/account" (click)="closeDropdown()" class="dropdown-menu-item">
+        <span class="menu-icon-circle">🔧</span>
+        <span class="menu-text">Settings</span>
+        <span class="menu-chevron">›</span>
+      </a>
+      <hr class="dropdown-divider">
+      <a href="javascript:void(0)" (click)="logout()" class="dropdown-menu-item logout-item">
+        <span class="menu-icon-circle">🚪</span>
+        <span class="menu-text">Logout</span>
+      </a>
+    </div>
+  </div>
+</div>

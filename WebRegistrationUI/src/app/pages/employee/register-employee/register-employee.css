@@ -1,0 +1,500 @@
+.dash-container {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    width: 100%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 24px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.dash-card {
+    background: white;
+    width: 100%;
+    max-width: 1200px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+    border-top: 6px solid #667eea;
+    overflow: hidden;
+}
+
+.dash-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 30px;
+    border-bottom: 1px solid #edf2f7;
+}
+
+.dash-title {
+    margin: 0;
+    color: #2d3748;
+    font-weight: 800;
+    font-size: 1.5rem;
+    letter-spacing: -0.5px;
+}
+
+.dash-count {
+    margin: 4px 0 0;
+    color: #94a3b8;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+.btn-primary-action {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.btn-primary-action:hover {
+    transform: translateY(-2px);
+}
+
+.btn-icon {
+    font-size: 1rem;
+}
+
+.btn-secondary-action {
+    background: #edf2f7;
+    color: #4a5568;
+    border: none;
+    padding: 9px 18px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.btn-danger-action {
+    background: #dc2626;
+    color: white;
+    border: none;
+    padding: 9px 18px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.toolbar {
+    padding: 18px 30px 0;
+}
+
+.search-bar {
+    position: relative;
+    display: flex;
+    align-items: center;
+    max-width: 320px;
+}
+
+.search-icon {
+    position: absolute;
+    left: 12px;
+    color: #a0aec0;
+    pointer-events: none;
+}
+
+.search-input {
+    width: 100%;
+    padding: 10px 34px;
+    border-radius: 8px;
+    border: 1.5px solid #e2e8f0;
+    box-sizing: border-box;
+    font-size: 0.9rem;
+    color: #2d3748;
+    outline: none;
+}
+
+.search-input:focus {
+    border-color: #667eea;
+}
+
+.clear-btn {
+    position: absolute;
+    right: 8px;
+    border: none;
+    background: transparent;
+    color: #a0aec0;
+    cursor: pointer;
+}
+
+/* Updated Table & Responsive Container Rules */
+.table-responsive {
+    width: 100%;
+    overflow-x: hidden; /* Removed forced horizontal scroll */
+    padding: 20px 24px;
+    box-sizing: border-box;
+}
+
+.custom-table {
+    width: 100%;
+    /* min-width: 1100px removed to allow fitting inside wrapper */
+    table-layout: auto;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.custom-table th {
+    background-color: #f8fafc;
+    color: #64748b;
+    font-weight: 600;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 12px 10px; /* Reduced cell padding */
+    border-bottom: 2px solid #e2e8f0;
+    cursor: pointer;
+    user-select: none;
+    white-space: nowrap;
+}
+
+.custom-table th:hover {
+    color: #667eea;
+    background-color: #f1f5f9;
+}
+
+.sort-arrow {
+    display: inline-block;
+    margin-left: 2px;
+    opacity: 0.25;
+}
+
+.sort-arrow.active {
+    opacity: 1;
+}
+
+.custom-table th.action-header {
+    cursor: default;
+    text-align: center;
+}
+
+.custom-table td {
+    padding: 12px 10px; /* Reduced cell padding */
+    color: #334155;
+    border-bottom: 1px solid #edf2f7;
+    vertical-align: middle;
+    font-size: 0.88rem;
+}
+
+/* Handle wide columns like ID and EMAIL */
+.col-id {
+    max-width: 110px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 0.82rem;
+}
+
+.col-email {
+    max-width: 180px;
+    word-break: break-all;
+    font-size: 0.85rem;
+}
+
+.custom-table tbody tr {
+    display: table-row;
+    visibility: visible;
+    opacity: 1;
+}
+
+.custom-table tbody td {
+    display: table-cell;
+}
+
+.custom-table tbody tr:hover {
+    background-color: #f1f5f9;
+}
+
+.fw-bold {
+    font-weight: 700;
+    color: #475569;
+}
+
+.salary-text {
+    font-weight: 600;
+    color: #10b981;
+}
+
+.gender-badge {
+    padding: 3px 8px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    display: inline-block;
+}
+
+.badge-male {
+    background-color: #e0f2fe;
+    color: #0284c7;
+}
+
+.badge-female {
+    background-color: #fce7f3;
+    color: #db2777;
+}
+
+.action-cell {
+    text-align: center;
+    padding: 12px 6px;
+}
+
+.action-btn {
+    border: none;
+    padding: 5px 10px;
+    border-radius: 6px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.btn-view {
+    background-color: #f1f5f9;
+    color: #475569;
+}
+
+.btn-update {
+    background-color: #fff7ed;
+    color: #ea580c;
+}
+
+.btn-delete {
+    background-color: #fef2f2;
+    color: #dc2626;
+}
+
+.empty-state {
+    padding: 50px 20px;
+    text-align: center;
+    color: #94a3b8;
+}
+
+.error-state p {
+    color: #dc2626;
+}
+
+.skeleton-wrap {
+    padding: 20px 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.skeleton-row {
+    display: flex;
+    gap: 24px;
+    align-items: center;
+}
+
+.skeleton-cell {
+    height: 14px;
+    border-radius: 6px;
+    background: #e2e8f0;
+}
+
+.skeleton-cell.w-sm {
+    width: 60px;
+}
+
+.skeleton-cell.w-md {
+    width: 140px;
+}
+
+.skeleton-cell.w-lg {
+    width: 200px;
+}
+
+.employee-card-list {
+    display: none;
+    flex-direction: column;
+    gap: 12px;
+    padding: 20px;
+}
+
+.employee-card {
+    border: 1px solid #edf2f7;
+    border-radius: 12px;
+    padding: 16px;
+    background: #fbfcfd;
+}
+
+.employee-card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.employee-card-name {
+    font-weight: 700;
+    color: #2d3748;
+    font-size: 1rem;
+}
+
+.employee-card-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 6px 0;
+    font-size: 0.88rem;
+    color: #334155;
+    border-bottom: 1px dashed #edf2f7;
+}
+
+.employee-card-row .label {
+    color: #94a3b8;
+    font-weight: 600;
+}
+
+.employee-card-actions {
+    display: flex;
+    gap: 8px;
+    margin-top: 12px;
+}
+
+.employee-card-actions .action-btn {
+    flex: 1;
+}
+
+.pagination-bar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 20px 16px;
+    flex-wrap: wrap;
+}
+
+.page-nav-btn,
+.page-num-btn {
+    min-width: 34px;
+    height: 34px;
+    padding: 0 8px;
+    border: 1px solid #e2e8f0;
+    background: white;
+    color: #4a5568;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.page-num-btn.active {
+    background: #667eea;
+    color: white;
+}
+
+.modal-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.45);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    z-index: 1000;
+}
+
+.modal-card {
+    background: white;
+    width: 100%;
+    max-width: 380px;
+    border-radius: 14px;
+    padding: 24px;
+}
+
+.modal-title {
+    margin: 0 0 10px;
+    color: #1e293b;
+}
+
+.modal-body {
+    margin: 0 0 20px;
+    color: #64748b;
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.toast {
+    position: fixed;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 12px 22px;
+    border-radius: 10px;
+    font-weight: 600;
+    color: white;
+    z-index: 1100;
+}
+
+.toast.success {
+    background: #10b981;
+}
+
+.toast.error {
+    background: #dc2626;
+}
+
+@media (max-width: 992px) {
+    .table-responsive {
+        overflow-x: auto; /* Fallback scroll on smaller tablet screens before mobile card view kicks in */
+    }
+}
+
+@media (max-width: 768px) {
+    .dash-container {
+        padding: 12px;
+    }
+
+    .dash-header {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+        padding: 18px 16px;
+    }
+
+    .dash-header .btn-primary-action {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .toolbar {
+        padding: 16px 16px 0;
+    }
+
+    .search-bar {
+        max-width: 100%;
+    }
+
+    .desktop-only {
+        display: none;
+    }
+
+    .mobile-only {
+        display: flex;
+    }
+}
+
+@media (max-width: 480px) {
+    .pagination-bar {
+        padding: 16px 8px;
+        gap: 4px;
+    }
+
+    .page-nav-btn,
+    .page-num-btn {
+        min-width: 30px;
+        height: 30px;
+        font-size: 12px;
+    }
+}

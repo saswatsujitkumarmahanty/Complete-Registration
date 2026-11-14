@@ -1,0 +1,326 @@
+.interactive-bg {
+    min-height: auto;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    padding-top: 20px;
+    box-sizing: border-box;
+}
+
+.update-card {
+    width: 100%;
+    max-width: 600px;
+    padding: 35px 40px;
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+    border-top: 6px solid #667eea;
+    transform: translateY(0);
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.update-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.25);
+}
+
+.dash-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.dash-title {
+    font-size: 28px;
+    color: #2d3748;
+    font-weight: 800;
+    margin-bottom: 6px;
+    letter-spacing: -0.5px;
+}
+
+.dash-subtitle {
+    color: #718096;
+    font-size: 14px;
+    margin: 0;
+}
+
+.dash-form {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+}
+
+.form-row {
+    display: flex;
+    gap: 15px;
+}
+
+.flex-1 {
+    flex: 1;
+}
+
+.floating-group {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-input {
+    width: 100%;
+    padding: 15px;
+    border: 2px solid #edf2f7;
+    border-radius: 12px;
+    background: #f7fafc;
+    font-size: 15px;
+    color: #2d3748;
+    outline: none;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+}
+
+select.form-input {
+    cursor: pointer;
+}
+
+.floating-label {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #a0aec0;
+    font-size: 15px;
+    pointer-events: none;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    background: transparent;
+    padding: 0 5px;
+}
+
+.form-input:focus ~ .floating-label,
+.form-input:not(:placeholder-shown) ~ .floating-label,
+.select-control:valid ~ .floating-label {
+    top: 0;
+    font-size: 12px;
+    font-weight: 700;
+    color: #667eea;
+    background: #ffffff;
+}
+
+.form-input:focus {
+    background-color: white;
+    border-color: #667eea;
+    box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.15);
+}
+
+.form-input.ng-dirty.ng-invalid {
+    border-color: #ff7675;
+}
+.form-input.ng-dirty.ng-invalid ~ .floating-label {
+    color: #ff7675;
+}
+
+.form-input.ng-dirty.ng-valid {
+    border-color: #10b981;
+}
+.form-input.ng-dirty.ng-valid ~ .floating-label {
+    color: #10b981;
+}
+
+.select-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.form-input.input-error {
+    border-color: #ff7675;
+}
+
+.form-input.input-error ~ .floating-label {
+    color: #ff7675;
+}
+
+.form-input.input-valid {
+    border-color: #10b981;
+    padding-right: 34px;
+}
+
+.form-input.input-valid ~ .floating-label {
+    color: #10b981;
+}
+
+.field-check {
+    position: absolute;
+    right: 12px;
+    top: 12px;
+    color: #10b981;
+    font-weight: 700;
+    font-size: 14px;
+    animation: uePopIn 0.2s ease;
+}
+
+@keyframes uePopIn {
+    from { transform: scale(0.4); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+.field-error {
+    display: block;
+    color: #e53e3e;
+    font-size: 12px;
+    margin-top: 6px;
+    font-weight: 500;
+}
+
+.unsaved-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+    font-weight: 700;
+    color: #b7791f;
+    background: #fffbeb;
+    border: 1px solid #fbd38d;
+    border-radius: 999px;
+    padding: 4px 10px;
+    margin-bottom: 10px;
+    animation: uePopIn 0.2s ease;
+}
+
+.unsaved-pill .dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #dd6b20;
+}
+
+@keyframes ueShake {
+  10%, 90% { transform: translateX(-1px); }
+  20%, 80% { transform: translateX(2px); }
+  30%, 50%, 70% { transform: translateX(-4px); }
+  40%, 60% { transform: translateX(4px); }
+}
+
+.dash-card.shake {
+  animation: ueShake 0.5s cubic-bezier(.36,.07,.19,.97) both;
+}
+
+.form-submit-error {
+    background: #fef2f2;
+    color: #dc2626;
+    border: 1px solid #fecaca;
+    border-radius: 10px;
+    padding: 10px 14px;
+    font-size: 13px;
+    font-weight: 500;
+    margin: 0;
+}
+
+.loading-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+    padding: 40px 0;
+    color: #718096;
+    font-size: 14px;
+}
+
+.spinner {
+    width: 34px;
+    height: 34px;
+    border: 3px solid #edf2f7;
+    border-top-color: #667eea;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+.load-error-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+    padding: 40px 0;
+    text-align: center;
+    color: #dc2626;
+    font-weight: 500;
+}
+
+.action-buttons-container {
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.btn-primary-action, .btn-secondary-action {
+    flex: 1;
+    padding: 16px;
+    border: none;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.btn-primary-action {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+}
+
+.btn-primary-action:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.6);
+}
+
+.btn-secondary-action {
+    background: #edf2f7;
+    color: #4a5568;
+}
+
+.btn-secondary-action:hover {
+    background: #e2e8f0;
+    transform: translateY(-2px);
+}
+
+.btn-primary-action:active, .btn-secondary-action:active {
+    transform: translateY(0) scale(0.98);
+}
+
+button:disabled {
+    background: #cbd5e0 !important;
+    color: #718096 !important;
+    cursor: not-allowed;
+    transform: none !important;
+    box-shadow: none !important;
+}
+@media (max-width: 480px) {
+    .interactive-bg {
+        padding: 12px;
+    }
+
+    .update-card {
+        padding: 22px 20px;
+        border-radius: 12px;
+    }
+
+    .dash-title {
+        font-size: 22px;
+    }
+
+    .form-row {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .action-buttons-container {
+        flex-direction: column;
+    }
+}

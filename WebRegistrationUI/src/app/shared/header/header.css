@@ -1,0 +1,274 @@
+/* 1. The Main Header Bar */
+.navbar {
+  display: flex;
+  justify-content: space-between; /* Pushes brand left, icon right */
+  align-items: center;
+  background-color: #ffffff;
+  padding: 0 30px; 
+  height: 60px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+  position: relative; 
+  z-index: 1000;
+}
+
+/* 2. Brand Styling (Far Left) */
+.nav-brand {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #1877f2; /* Facebook Blue */
+  letter-spacing: -0.5px;
+}
+
+/* 3. Profile Container (Far Right) - CRITICAL FOR DROPDOWN POSITIONING */
+.nav-profile {
+  position: relative;
+  display: inline-block;
+}
+/* 4. The New Circular Profile Icon Button */
+.profile-icon-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  background-color: #e4e6eb; /* Standard FB light gray */
+  color: #050505;
+  border: none;
+  border-radius: 50px; /* Makes it circular */
+  padding: 8px 12px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.nav-avatar {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  overflow: hidden;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #cfd3d9;
+}
+
+.nav-avatar-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.nav-avatar-initials {
+  font-size: 11px;
+  font-weight: 700;
+  color: #050505;
+  line-height: 1;
+}
+/* --- FB Style Dropdown Container --- */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: 110%;
+  background-color: #ffffff;
+  width: 360px; /* Wide enough to fit the large menu items */
+  box-shadow: 0px 12px 28px 0px rgba(0, 0, 0, 0.2), 0px 2px 4px 0px rgba(0, 0, 0, 0.1); /* Deep Facebook shadow */
+  border-radius: 8px;
+  z-index: 1001;
+  padding: 16px; 
+  box-sizing: border-box;
+  border: none; /* Removed the flat border */
+}
+
+.dropdown-content.show {
+  display: block;
+  animation: dropdownIn 0.18s ease;
+}
+
+@keyframes dropdownIn {
+  from { opacity: 0; transform: translateY(-6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.dropdown-arrow {
+  font-size: 10px;
+  display: inline-block;
+  transition: transform 0.2s ease;
+}
+
+.dropdown-arrow.open {
+  transform: rotate(180deg);
+}
+  
+@media (max-width: 768px) {
+  .navbar {
+    padding: 0 16px;
+  }
+
+  .dropdown-content {
+    width: min(360px, calc(100vw - 32px)); /* never wider than the viewport */
+  }
+}
+
+@media (max-width: 400px) {
+  .nav-brand {
+    font-size: 1.2rem;
+  }
+}
+
+/* 1. Top Card inside Dropdown */
+.dropdown-card {
+  box-shadow: 0px 2px 12px rgba(0, 0, 0, 0.08);
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 16px;
+  border: 1px solid #ced0d4;
+}
+
+.dropdown-profile-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.dropdown-avatar {
+  width: 36px;
+  height: 36px;
+  background-color: #e4e6eb;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #65676B;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.dropdown-avatar-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.dropdown-avatar svg {
+  width: 24px;
+  height: 24px;
+}
+
+.dropdown-profile-name {
+  font-weight: 600;
+  font-size: 17px;
+  color: #050505;
+}
+
+.dropdown-divider {
+  border: none;
+  border-top: 1px solid #ced0d4;
+  margin: 16px 0;
+}
+
+.dropdown-action-btn {
+  display: block;
+  text-align: center;
+  background-color: #e4e6eb;
+  color: #050505;
+  font-weight: 600;
+  padding: 8px;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+}
+
+.dropdown-action-btn:hover {
+  background-color: #d8dadf;
+}
+
+/* 2. Menu Items */
+.dropdown-menu-item {
+  display: flex;
+  align-items: center;
+  padding: 8px;
+  border-radius: 8px;
+  text-decoration: none;
+  color: #050505;
+  transition: background-color 0.2s ease;
+  cursor: pointer;
+  margin-bottom: 4px;
+}
+
+.dropdown-menu-item:hover {
+  background-color: #f2f2f2;
+}
+
+.dropdown-menu-item.disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+.dropdown-menu-item.disabled:hover {
+  background-color: transparent;
+}
+
+.menu-badge {
+  font-size: 11px;
+  font-weight: 700;
+  color: #65676b;
+  background-color: #e4e6eb;
+  padding: 2px 8px;
+  border-radius: 10px;
+}
+
+.logout-item .menu-text {
+  color: #e53e3e;
+}
+
+.menu-icon-circle {
+  width: 36px;
+  height: 36px;
+  background-color: #e4e6eb; /* The classic gray circle */
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 12px;
+  color: #050505;
+}
+
+.menu-text {
+  flex-grow: 1; /* Pushes the arrow to the right */
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.menu-chevron {
+  font-size: 16px;
+  color: #65676B;
+  font-weight: bold;
+}
+
+/* 3. Footer Links */
+.dropdown-footer {
+  font-size: 13px;
+  color: #65676B;
+  margin-top: 12px;
+  line-height: 1.4;
+  padding: 0 8px;
+}
+.dropdown-content a {
+  color: #050505;
+  padding: 10px 12px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 12px; /* Pushes the emojis away from the text */
+  font-size: 15px;
+  font-weight: 600;
+  border-radius: 6px; /* Rounds the corners of the hover effect */
+  transition: background-color 0.2s ease;
+  margin-bottom: 4px;
+}
+
+.dropdown-content a:hover {
+  background-color: #f2f2f2; /* Classic FB gray hover */
+}

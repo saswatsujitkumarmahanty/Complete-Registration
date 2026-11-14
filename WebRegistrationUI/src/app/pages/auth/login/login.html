@@ -1,0 +1,99 @@
+<div class="interactive-bg">
+  <div class="dash-container">
+    <div class="dash-card" [class.shake]="shake">
+      <div class="dash-header">
+        <h2 class="dash-title">{{ !showOtpStep ? 'Welcome Back' : 'Security Verification' }}</h2>
+        <p class="dash-subtitle">
+          {{
+            !showOtpStep
+              ? 'Log in to your RegistrationUI dashboard.'
+              : 'Enter the 6-digit verification code sent to your devices.'
+          }}
+        </p>
+      </div>
+
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="dash-form">
+        <p class="form-error-banner" *ngIf="errorMessage">{{ errorMessage }}</p>
+
+        <ng-container *ngIf="!showOtpStep">
+          <div class="floating-group">
+            <input
+              type="email"
+              formControlName="email"
+              placeholder=" "
+              class="form-input"
+              id="login-email"
+            />
+            <label for="login-email" class="floating-label">Email Address</label>
+          </div>
+
+          <div class="floating-group">
+            <input
+              type="text"
+              formControlName="phone"
+              placeholder=" "
+              class="form-input"
+              id="login-phone"
+            />
+            <label for="login-phone" class="floating-label">Phone Number</label>
+          </div>
+
+          <button
+            type="submit"
+            [disabled]="loginForm.get('email')?.invalid || loginForm.get('phone')?.invalid || isSubmitting"
+            class="btn btn-primary"
+          >
+            <span class="btn-spinner" *ngIf="isSubmitting"></span>
+            <span>{{ isSubmitting ? 'Sending…' : 'Send Verification Code' }}</span>
+          </button>
+        </ng-container>
+
+        <ng-container *ngIf="showOtpStep">
+          <div class="otp-row" (paste)="onOtpPaste($event)">
+            <input
+              *ngFor="let digit of otpDigits; let i = index"
+              #otpInputs
+              type="text"
+              inputmode="numeric"
+              maxlength="1"
+              class="otp-box"
+              [class.filled]="digit"
+              [class.otp-error]="loginForm.get('otpCode')?.touched && loginForm.get('otpCode')?.invalid"
+              [value]="digit"
+              (input)="onOtpInput($event, i)"
+              (keydown)="onOtpKeydown($event, i)"
+              autocomplete="one-time-code"
+            />
+          </div>
+
+          <p class="resend-toast" *ngIf="resendJustSent">A new code is on its way.</p>
+
+          <div class="resend-row">
+            <ng-container *ngIf="resendSeconds > 0; else canResend">
+              Resend code in {{ resendSeconds }}s
+            </ng-container>
+            <ng-template #canResend>
+              Didn't get it?
+              <button type="button" class="resend-link" (click)="resendOtp()">Resend code</button>
+            </ng-template>
+          </div>
+
+          <button
+            type="submit"
+            [disabled]="loginForm.get('otpCode')?.invalid || isSubmitting"
+            class="btn btn-primary"
+          >
+            <span class="btn-spinner" *ngIf="isSubmitting"></span>
+            <span>{{ isSubmitting ? 'Verifying…' : 'Confirm & Authorize' }}</span>
+          </button>
+
+          <div class="forgot-container">
+            <a href="javascript:void(0)" (click)="backToLoginCredentials()" class="forgot-link">
+              ← Change Account Details
+            </a>
+          </div>
+        </ng-container>
+      </form>
+    </div>
+  </div>
+</div>

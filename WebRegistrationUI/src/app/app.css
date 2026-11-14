@@ -1,0 +1,68 @@
+/* 1. Base Application Wrapper (Stacks vertically) */
+.app-wrapper {
+  display: flex;
+  flex-direction: column; /* Forces header top, body bottom */
+  height: 100vh;
+  overflow: hidden;
+  background-color: #f0f2f5; /* Classic Facebook canvas background */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* 2. Middle Section (Sidebar + Main Content side-by-side) */
+.dashboard-body {
+  display: flex;
+  flex: 1; /* Fills the remaining screen height below the header */
+  overflow: hidden;
+}
+
+/* 3. Sidebar Styling */
+.dashboard-sidebar {
+  width: 260px;
+  background-color: #ffffff;
+  border-right: 1px solid #e4e6eb; /* Subtle Facebook-style border */
+  display: flex;
+  flex-direction: column;
+  z-index: 10;
+  overflow-y: auto;
+}
+
+.sidebar-nav {
+  padding: 20px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.sidebar-link {
+  padding: 12px 24px;
+  text-decoration: none;
+  color: #65676b; /* FB dark gray */
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  transition: all 0.2s ease;
+}
+
+.sidebar-link:hover, .sidebar-link.active {
+  background-color: #f2f2f2;
+  color: #1877f2; /* FB active blue */
+}
+
+/* 4. Main Content Area */
+.content-container {
+  flex: 1;
+  padding: 30px;
+  overflow-y: auto; /* Only this middle section scrolls */
+}
+@media (max-width: 768px) {
+  .content-container {
+    padding: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .content-container {
+    padding: 12px;
+  }
+}
